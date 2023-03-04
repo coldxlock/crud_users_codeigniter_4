@@ -5,4 +5,4 @@ Coisas que eu notei que nao existia na versao 3 do CI:
 3 - CI_ENVIRONMENT = development ou production
 4 - Possibilidade de criar controller pelo terminal
 5 - As rotas improvisadas precisavam do arquivo .htaccess como config
-
+6 - Models com mais opcoes úteis
