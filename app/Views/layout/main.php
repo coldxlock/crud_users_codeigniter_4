@@ -1729,20 +1729,23 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
                     <!-- BEGIN Page Content -->
                     <!-- the #js-page-content id is needed for some plugins to initialize -->
                     <main id="js-page-content" role="main" class="page-content">
+                       
+                        <?php if (isset($path_pages)):?>                                                
                         <ol class="breadcrumb page-breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0);">SmartAdmin</a></li>
-                            <li class="breadcrumb-item">Application Intel</li>
-                            <li class="breadcrumb-item active">Introduction</li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);"> <?= $path_pages[0] ?></a></li>
+                            <li class="breadcrumb-item"><?= $path_pages[1] ?></li>
+                            <li class="breadcrumb-item active"><?= $path_pages[2] ?></li>
                             <li class="position-absolute pos-top pos-right d-none d-sm-block"><span class="js-get-date"></span></li>
                         </ol>
-                        <div class="subheader">
+                        <?php endif ?> 
+                        <!-- <div class="subheader">
                             <h1 class="subheader-title">
                                 <i class='fal fa-info-circle'></i> Introduction
                                 <small>
                                     A brief introduction to this WebApp
                                 </small>
                             </h1>
-                        </div>
+                        </div> -->
 
 
 

@@ -41,3 +41,255 @@ in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
  7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+ERROR - 2023-03-05 13:52:16 --> Error connecting to the database: mysqli_sql_exception: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+ in C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php:174
+Stack trace:
+#0 C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php(174): mysqli->real_connect('localhost', 'root', '', '', 3306, '', 0)
+#1 C:\xampp\htdocs\users\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\users\system\Database\Database.php(67): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\users\system\Database\Config.php(109): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#4 C:\xampp\htdocs\users\system\Commands\Database\CreateDatabase.php(137): CodeIgniter\Database\Config::forge()
+#5 C:\xampp\htdocs\users\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\CreateDatabase->run(Array)
+#6 C:\xampp\htdocs\users\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:create', Array)
+#7 C:\xampp\htdocs\users\spark(97): CodeIgniter\CLI\Console->run()
+#8 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+ in C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp\htdocs\users\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\users\system\Database\Database.php(67): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\users\system\Database\Config.php(109): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#3 C:\xampp\htdocs\users\system\Commands\Database\CreateDatabase.php(137): CodeIgniter\Database\Config::forge()
+#4 C:\xampp\htdocs\users\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\CreateDatabase->run(Array)
+#5 C:\xampp\htdocs\users\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:create', Array)
+#6 C:\xampp\htdocs\users\spark(97): CodeIgniter\CLI\Console->run()
+#7 {main}
+ERROR - 2023-03-05 14:11:17 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')
+) DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci' at line 14 in C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\users\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\users\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\users\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\users\app\Database\Migrations\2023-03-05-135526_CreateTableUsers.php(67): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateTableUsers->up()
+#6 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\users\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\users\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\users\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\users\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-03-05 14:11:51 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')
+) DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci' at line 14 in C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\users\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\users\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\users\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\users\app\Database\Migrations\2023-03-05-135526_CreateTableUsers.php(67): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateTableUsers->up()
+#6 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\users\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\users\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\users\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\users\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-03-05 14:12:58 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')
+) DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci' at line 14 in C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\users\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\users\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\users\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\users\app\Database\Migrations\2023-03-05-135526_CreateTableUsers.php(69): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateTableUsers->up()
+#6 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\users\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\users\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\users\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\users\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-03-05 14:16:00 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')
+) DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci' at line 14 in C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\users\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\users\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\users\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\users\app\Database\Migrations\2023-03-05-135526_CreateTableUsers.php(69): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateTableUsers->up()
+#6 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\users\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\users\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\users\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\users\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-03-05 14:17:02 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')
+) DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci' at line 14 in C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\users\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\users\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\users\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\users\app\Database\Migrations\2023-03-05-135526_CreateTableUsers.php(69): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateTableUsers->up()
+#6 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\users\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\users\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\users\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\users\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-03-05 14:18:23 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')
+) DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci' at line 14 in C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\users\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\users\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\users\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\users\app\Database\Migrations\2023-03-05-135526_CreateTableUsers.php(69): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateTableUsers->up()
+#6 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\users\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\users\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\users\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\users\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-03-05 14:20:01 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')
+) DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci' at line 14 in C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\users\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\users\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\users\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\users\app\Database\Migrations\2023-03-05-135526_CreateTableUsers.php(69): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateTableUsers->up()
+#6 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\users\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\users\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\users\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\users\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-03-05 14:21:41 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')
+) DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci' at line 14 in C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\users\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\users\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\users\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\users\app\Database\Migrations\2023-03-05-135526_CreateTableUsers.php(69): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateTableUsers->up()
+#6 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\users\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\users\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\users\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\users\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-03-05 14:25:41 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')
+) DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci' at line 14 in C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\users\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\users\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\users\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\users\app\Database\Migrations\2023-03-05-142452_CreateTableUsers.php(69): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateTableUsers->up()
+#6 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\users\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\users\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\users\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\users\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-03-05 14:26:30 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')
+) DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci' at line 14 in C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\users\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\users\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\users\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\users\app\Database\Migrations\2023-03-05-142452_CreateTableUsers.php(69): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateTableUsers->up()
+#6 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\users\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\users\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\users\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\users\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-03-05 14:34:02 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')
+) DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci' at line 14 in C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\users\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\users\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\users\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\users\app\Database\Migrations\2023-03-05-142452_CreateTableUsers.php(69): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateTableUsers->up()
+#6 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\users\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\users\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\users\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\users\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-03-05 14:38:09 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')
+) DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci' at line 14 in C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\users\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\users\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\users\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\users\app\Database\Migrations\2023-03-05-142452_CreateTableUsers.php(69): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateTableUsers->up()
+#6 C:\xampp\htdocs\users\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\users\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\users\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\users\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\users\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-03-05 14:46:49 --> mysqli_sql_exception: Unknown column 'first_name' in 'field list' in C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `us...', 0)
+#1 C:\xampp\htdocs\users\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\users\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\users\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\users\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\users\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\users\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\users\app\Database\Seeds\UserSeeder.php(22): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\users\system\Database\Seeder.php(146): App\Database\Seeds\UserSeeder->run()
+#9 C:\xampp\htdocs\users\system\Commands\Database\Seed.php(77): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#10 C:\xampp\htdocs\users\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run(Array)
+#11 C:\xampp\htdocs\users\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', Array)
+#12 C:\xampp\htdocs\users\spark(97): CodeIgniter\CLI\Console->run()
+#13 {main}
+ERROR - 2023-03-05 14:47:26 --> mysqli_sql_exception: Unknown column 'firstname' in 'field list' in C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `us...', 0)
+#1 C:\xampp\htdocs\users\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\users\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\users\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\users\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\users\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\users\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\users\app\Database\Seeds\UserSeeder.php(22): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\users\system\Database\Seeder.php(146): App\Database\Seeds\UserSeeder->run()
+#9 C:\xampp\htdocs\users\system\Commands\Database\Seed.php(77): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#10 C:\xampp\htdocs\users\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run(Array)
+#11 C:\xampp\htdocs\users\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', Array)
+#12 C:\xampp\htdocs\users\spark(97): CodeIgniter\CLI\Console->run()
+#13 {main}
+ERROR - 2023-03-05 14:49:55 --> mysqli_sql_exception: Duplicate entry '04329436337' for key 'cpf' in C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\users\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `us...', 0)
+#1 C:\xampp\htdocs\users\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\users\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\users\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\users\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\users\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\users\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\users\app\Database\Seeds\UserSeeder.php(22): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\users\system\Database\Seeder.php(146): App\Database\Seeds\UserSeeder->run()
+#9 C:\xampp\htdocs\users\system\Commands\Database\Seed.php(77): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#10 C:\xampp\htdocs\users\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run(Array)
+#11 C:\xampp\htdocs\users\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', Array)
+#12 C:\xampp\htdocs\users\spark(97): CodeIgniter\CLI\Console->run()
+#13 {main}

@@ -15,32 +15,51 @@ class CreateTableUsers extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'firstname,' => [
+            'firstname' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
             ],
-            'lastname,' => [
+            'lastname' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
-            ],
-            'email,' => [
+            ],           
+            'email' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '100',
+                'constraint' => '255',
             ],
-            'mobile,' => [
-                'type'       => 'INT',
+            'mobile' => [
+                'type'       => 'VARCHAR',
                 'constraint' => 20
             ],
-            'username,' => [
+            'username' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
             ],
-            'password,' => [
+            'password' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
+            ],
+            'created_at' => [
+                'type'       => 'DATETIME',
+                'null'       =>   true,
+                'default'    =>   null,
+            ],
+            'updated_at' => [
+                'type'       => 'DATETIME',
+                'null'       =>   true,
+                'default'    =>   null,
+            ],
+            'deleted_at' => [
+                'type'       => 'DATETIME',
+                'null'       =>   true,
+                'default'    =>   null,
             ]
+            
         ]);
         $this->forge->addKey('id', true);
+        
+        $this->forge->addUniqueKey(['id', 'email'], 'key_name');
+
         $this->forge->createTable('users');
     }
 
