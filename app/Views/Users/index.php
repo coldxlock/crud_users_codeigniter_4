@@ -298,7 +298,12 @@
             {
 
                 const confirm_password = $('input[name="Confirm Password"]').val();
-                const password = $('input[name="Password"]').val();
+                const password = $('input[name="Password"]').val();               
+               
+                if (password === '' || confirm_password === '' ) {                  
+                    toastr["error"]("Attention! Password field cannot be empty!")
+                    return
+                }  
 
                 if (password !== confirm_password) {                  
                     toastr["error"]("Attention! Password field needs to be the same as confirm password.")
