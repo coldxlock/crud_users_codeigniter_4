@@ -112,10 +112,7 @@
             "hideMethod": "fadeOut"
         }
 
-        
-
-        
-
+                
         
         // Event Lot
         var events = $("#app-eventlog");
@@ -414,15 +411,7 @@
             
         })
 
-        // $(window).on("shown.bs.modal", function(e) {
-          
-            
-        //     if ($('#password')) {
-        //         $('#password').val('');
-        //         $('input[name="Confirm Password"]').val('');
-        //     }             
-
-        // })
+      
 
     });
 
