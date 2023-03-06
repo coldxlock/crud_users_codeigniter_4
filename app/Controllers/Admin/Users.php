@@ -5,6 +5,7 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 
 use App\Entities\User;
+use stdClass;
 
 class Users extends BaseController
 {
@@ -27,35 +28,9 @@ class Users extends BaseController
         return view('Users/index', $data);
     }
 
-    public function test() {
-        $data = [
-            'data' => $this->userModel->findAll() 
-        ];
-
-        echo '<pre>';
-        print_r($data);
-        echo '</pre>';
-        exit;
-    }
-
-    public function ram() {
-        $data = [
-            'data' => $this->userModel->findAll() 
-        ];
-
-        $json = '{"data":[{"id":"1","firstname":"John"}]}';
-        return json_encode( $json );
-
-        return json_encode( $json );
-    }
-
     public function loadUsers() {
 
-        $data = [
-            'data' => $this->userModel->findAll() 
-        ];
-
-        $json = '{"data":[{"id":"1","firstname":"John"}]}';
+        $data = ['data' => $this->userModel->findAll() ];
 
         return json_encode( $data );
     }
@@ -70,63 +45,64 @@ class Users extends BaseController
 
     public function updateUser() {
         if (!$this->request->isAJAX()) {
-            exit('Error!') ;           
+            exit('Error! Access denied!') ;           
         }
 
         $post = $this->request->getPost();
-        $user = $this->findUser($post['rowdata']['id']);
-
-        $ram =  (object) $post['rowdata'];
-
-
         
-        // if (!$user->hasChanged()) {
-        //     //retornar mensagem que n houve mudanças
-        // }
-        // 
-        // $user->fill($ram);
-
-        $user->username = $post['rowdata']['username'];
-
         
-
-        if (empty($post['rowdata']['password'] ) ) {
+        if (empty($post['rowdata']['password'])) {
             unset($post['rowdata']['password']);
         }
 
+        $userArr =  $post['rowdata'];
+
+        if (empty($post['rowdata']['password'] ) ) {
+            unset($post['rowdata']['password']);
+        }        
         
-        
-        if ($this->userModel->protect(false)->save($user)) {
-            echo '<pre>';
-            print_r('salvo');
-            echo '</pre>';
-            exit;
-            
+        if ($this->userModel->protect(false)->save($userArr)) {
+            return json_encode(['status'=> true,'message' =>'Saved successfully!']);          
         }
-        
-        
-         
+                         
     }
     
     public function createUser() {
        
         if (!$this->request->isAJAX()) {
-            exit('Error!') ;           
+            exit('Error! Access denied!') ;             
         }
 
         $post = $this->request->getPost();
-        echo '<pre>';
-        print_r($post);
-        echo '</pre>';
-        exit; 
+
+        if (!empty($post)) {
+            $userArr =  $post['rowdata'];
+
+            if ($this->userModel->protect(false)->save($userArr)) {
+                return json_encode(['status'=> true,'message' =>'Saved successfully!']);          
+            }
+        }
+               
+    }
+
+    public function deleteUser() {        
+        try {
+            if (!$this->request->isAJAX()) {
+                exit('Error! Access denied!') ;           
+            }
+            $post = $this->request->getPost();
+            if (!empty($post)) {
+                // $user = $this->findUser($post['rowdata']['id']);
+                $id = $post['rowdata']['id'];
+                if ($this->userModel->delete($id)) {
+                    return json_encode(['status'=> true,'message' =>'Record deleted successfully!']);
+                }
+            }
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
         
 
-        // $user = new User();
-
-
-
-        // $data = [];
-
-        
     }
 }

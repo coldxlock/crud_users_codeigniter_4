@@ -11,10 +11,12 @@
 <link rel="mask-icon" href="<?= site_url('smartadmin') ?>/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
 <link rel="stylesheet" media="screen, print" href="<?= site_url('smartadmin') ?>/css/datagrid/datatables/datatables.bundle.css">
 <link rel="stylesheet" media="screen, print" href="<?= site_url('smartadmin') ?>/css/theme-demo.css">
+<link rel="stylesheet" media="screen, print" href="<?= site_url('smartadmin') ?>/css/notifications/toastr/toastr.css">
 <?= $this->endSection(); ?>
 
 
 <?= $this->section('content'); ?>
+
 <div class="row">
     <div class="col-xl-12">
         <div id="panel-1" class="panel">
@@ -43,7 +45,7 @@
                     </ul>
                     <!-- end tabs -->
                     <!-- tab content -->
-                    <div class="tab-content pt-4">
+                    <div class="tab-content pt-4" >
                         <div class="tab-pane fade show active" id="tab_default-1" role="tabpanel">
                             <!-- row -->
                             <div class="row">
@@ -52,7 +54,7 @@
                                     <table id="dt-basic-example" class="table table-bordered table-hover table-striped w-100"></table>
                                     <!-- datatable end -->
                                 </div>
-                                <div class="col-xl-12">
+                                <div class="col-xl-12" style="display:none">
                                     <hr class="mt-5 mb-5">
                                     <h5>Event <i>logs (AJAX Calls)</i></h5>
                                     <div id="app-eventlog" class="alert alert-primary p-1 h-auto my-3"></div>
@@ -84,13 +86,37 @@
 
 
 <?= $this->section('scripts'); ?>
-
+<script src="<?= site_url('smartadmin') ?>/js/notifications/toastr/toastr.js"></script>
 <script src="<?= site_url('smartadmin') ?>/js/datagrid/datatables/datatables.bundle.js"></script>
 <script>
+
+
     $(document).ready(function()
     {
+     
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": true,
+            "onclick": null,
+            "showDuration": 300,
+            "hideDuration": 100,
+            "timeOut": 5000,
+            "extendedTimeOut": 1000,
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
 
-      
+        
+
+        
+
+        
         // Event Lot
         var events = $("#app-eventlog");
 
@@ -103,7 +129,10 @@
             placeholderMsg: "Automatically generated ID",
             "visible": false,
             "searchable": false,
-            type: "readonly"
+            type: "readonly",
+            editorOnChange: function(content) {
+                console.log('Alter .....');
+            }
         },
        
         {
@@ -112,7 +141,7 @@
             data: "firstname",
             type: "text",
             pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]",
-            placeholderMsg: "Ex: John",
+            placeholderMsg: "Ex: Prisco",
             errorMsg: "*First name is required.",
             hoverMsg: "(Optional) - Ex: Prisco",
             unique: false,      
@@ -187,83 +216,7 @@
             "visible": false,
             "searchable": false,
         },
-        // {
-        //     title: "Confirm Password",
-        //     id: "confirm_password",
-        //     data: "password",
-        //     type: "password",
-        //     pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]",
-        //     errorMsg: "*Confirm Password is required.", 
-        //     unique: false,      
-        //     required: true,            
-        //     "visible": false,
-        //     "searchable": false,
-        // },
-        // {
-        //     title: "Confirm Password",
-        //     id: "confirm_password",
-        //     data: "password",
-        //     type: "password",
-        //     pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$",
-        //     unique: false,      
-        //     required: true,
-        //     "visible": false,
-        //     "searchable": false,
-        // },
-        // {
-        //     title: "Port Number",
-        //     id: "port",
-        //     data: "port",
-        //     type: "number",
-        //     pattern: "^([0-9]{1,4}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$",
-        //     placeholderMsg: "e.g 6112",
-        //     errorMsg: "*Invalid port - Enter valid port or range.",
-        //     hoverMsg: "Ex: 6112 (single)   or   6111:6333 (range)",
-        //     unique: false,
-        //     required: true
-        // },
-        // {
-        //     title: "Activation Date",
-        //     id: "adate",
-        //     data: "adate",
-        //     type: "date",
-        //     pattern: "((?:19|20)\d\d)-(0?[1-9]|1[012])-([12][0-9]|3[01]|0?[1-9])",
-        //     placeholderMsg: "yyyy-mm-dd",
-        //     errorMsg: "*Invalid date format. Format must be yyyy-mm-dd"
-        // },
-        // {
-        //     title: "User Email",
-        //     id: "user",
-        //     data: "user",
-        //     type: "text",
-        //     pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$",
-        //     placeholderMsg: "user@domain.com",
-        //     errorMsg: "*Invalid email - Enter valid email.",
-        //     unique: true,
-        //     required: true,
-        //     uniqueMsg: "Email already in use"
-        // },
-        // {
-        //     title: "Package",
-        //     id: "package",
-        //     data: "package",
-        //     type: "select",
-        //     "options": [
-        //         "free",
-        //         "silver",
-        //         "gold",
-        //         "platinum",
-        //         "payg"
-        //     ]
-        // },
-        // {
-        //     title: "Acc. Balance",
-        //     id: "balance",
-        //     data: "balance",
-        //     type: "number",
-        //     placeholderMsg: "Amount due",
-        //     defaultValue: "0"
-        // }
+       
     ]
 
         /* start data table */
@@ -351,7 +304,7 @@
                 const password = $('input[name="Password"]').val();
 
                 if (password !== confirm_password) {                  
-                    alert("Attention! Password field needs to be the same as confirm password. ")
+                    toastr["error"]("Attention! Password field needs to be the same as confirm password.")
                     return
                 }              
 
@@ -365,35 +318,29 @@
                     async:false
                 })
                 .done(function(data) {
-                    console.log('data',data);
-                    // var dados = $.parseJSON(data);
-                    // if (dados.resultado) {
-                    //     alert(dados.mensagem);
-                    //     window.location.reload(false);
-                    // } else {
-                    //     alert(dados.mensagem);
-                    // }
+                    const result = $.parseJSON(data);
+                    if (result.status) {
+                        toastr["success"](result.message);
+                        success(rowdata);
+                    } else {
+                        toastr["error"]("There was an error trying to save, please try again later!")
+                    }
                 })
                 .fail(function() {
-                    console.log("error");
+                    toastr["error"]("There was an error trying to save, please try again later!")
                 });
 
-            
-                // success(rowdata);
-
-                // // demo only below:
-                // events.prepend('<p class="text-success fw-500">' + JSON.stringify(rowdata, null, 4) + '</p>');
             },
             onEditRow: function(dt, rowdata, success, error)
             {
                 const confirm_password = $('input[name="Confirm Password"]').val();
                 const password = $('input[name="Password"]').val();
 
-                if (password !== confirm_password) {                  
-                    alert("Attention! Password field needs to be the same as confirm password. ")
+                if (password !== confirm_password) {                                      
+                    toastr["error"]("Attention! Password field needs to be the same as confirm password.")
                     return
                 }
-
+                                
                 $.ajax({
                     url: '<?= site_url() ?>/admin/users/updateUser',
                     type: 'POST',
@@ -403,34 +350,79 @@
                     },
                     async:false
                 })
-                .done(function(data) {
-                    console.log('data',data);
-                    // var dados = $.parseJSON(data);
-                    // if (dados.resultado) {
-                    //     alert(dados.mensagem);
-                    //     window.location.reload(false);
-                    // } else {
-                    //     alert(dados.mensagem);
-                    // }
+                .done(function(data) {                   
+                    const result = $.parseJSON(data);
+                    if (result.status) {
+                        toastr["success"](result.message);
+                        success(rowdata);
+                    } else {
+                        toastr["error"]("There was an error trying to save, please try again later!")
+                    }
                 })
-                .fail(function() {
-                    console.log("error");
+                .fail(function() {              
+                    toastr["error"]("There was an error trying to save, please try again later!")
                 });
-
-                // success(rowdata);
-
-                // // demo only below:
-                // events.prepend('<p class="text-info fw-500">' + JSON.stringify(rowdata, null, 4) + '</p>');
+              
             },
             onDeleteRow: function(dt, rowdata, success, error)
             {
-                console.log("Missing AJAX configuration for DELETE");
-                success(rowdata);
-
-                // demo only below:
-                events.prepend('<p class="text-danger fw-500">' + JSON.stringify(rowdata, null, 4) + '</p>');
+                $.ajax({
+                    url: '<?= site_url() ?>/admin/users/deleteUser',
+                    type: 'POST',
+                    data: {
+                        rowdata,
+                        <?= csrf_token() ?> : "<?= csrf_hash() ?>"
+                    },
+                    async:false
+                })
+                .done(function(data) {                   
+                    const result = $.parseJSON(data);
+                    if (result.status) {
+                        toastr["success"](result.message);
+                        success(rowdata);
+                    } else {
+                        toastr["error"]("An error occurred, please try again later!")
+                    }
+                })
+                .fail(function() {              
+                    toastr["error"]("An error occurred, please try again later!")
+                });
             },
         });
+
+        $('.btn.buttons-selected.btn-primary.btn-sm.mr-1').on('click', function(e){
+            e.preventDefault();            
+            
+            if ($('#password') && $('.modal-title').html() === 'Delete Record') {                
+                $('.modal-content').css('display', 'none');
+                const password = $('label[for="password"]')
+                password.closest('.col-12.mb-2').empty()
+                                
+            } else {
+                if ($('#password')) {
+                    $('#password').val('');
+                    $('input[name="Confirm Password"]').val('');
+                }  
+            }
+
+            setTimeout(function(){ 
+                $('.modal-content').css('display', 'block');
+            }, 100);
+
+            
+          
+            
+        })
+
+        // $(window).on("shown.bs.modal", function(e) {
+          
+            
+        //     if ($('#password')) {
+        //         $('#password').val('');
+        //         $('input[name="Confirm Password"]').val('');
+        //     }             
+
+        // })
 
     });
 
